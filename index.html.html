@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Doors Hardware | Commercial Door Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red: #c41e2a;
+  --red-dark: #9b1822;
+  --red-light: #e63946;
+  --black: #0a0a0a;
+  --black-light: #1a1a1a;
+  --black-card: #141414;
+  --gray-dark: #2a2a2a;
+  --gray: #888;
+  --gray-light: #bbb;
+  --white: #f5f5f5;
+  --gold: #c9a84c;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ──── TOPBAR ──── */
+.topbar {
+  background: var(--red);
+  padding: 8px 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  position: relative;
+  z-index: 100;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topbar a { color: #fff; font-weight: 600; }
+.topbar a:hover { text-decoration: underline; }
+.topbar-left { display: flex; gap: 24px; align-items: center; }
+.topbar-right { display: flex; gap: 20px; align-items: center; }
+.topbar svg { width: 14px; height: 14px; fill: #fff; vertical-align: middle; margin-right: 5px; }
+
+/* ──── NAVBAR ──── */
+.navbar {
+  background: rgba(10,10,10,0.97);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: box-shadow 0.3s;
+}
+.navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.7); }
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.logo { display: flex; align-items: center; gap: 14px; padding: 10px 0; }
+.logo img { height: 60px; }
+.logo-text { line-height: 1.1; }
+.logo-text h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: 0.08em; color: #fff; }
+.logo-text span { font-size: 0.7rem; letter-spacing: 0.22em; color: var(--red); font-weight: 600; }
+
+.nav-links { display: flex; gap: 0; align-items: center; }
+.nav-links a {
+  padding: 22px 18px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray-light);
+  transition: all 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--red);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--red) !important;
+  color: #fff !important;
+  padding: 12px 28px !important;
+  margin-left: 10px;
+  clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  font-weight: 600 !important;
+  transition: background 0.3s !important;
+}
+.nav-cta:hover { background: var(--red-light) !important; }
+.nav-cta::after { display: none !important; }
+
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.mobile-toggle span { display: block; width: 26px; height: 2px; background: #fff; margin: 6px 0; transition: 0.3s; }
+
+/* ──── CONTAINER ──── */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* ──── HERO ──── */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--black);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(196,30,42,0.15) 0%, transparent 50%),
+    linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.8) 100%),
+    url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+  );
+}
+.hero-accent {
+  position: absolute;
+  right: -200px;
+  top: -200px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(196,30,42,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 2; }
+.hero-content { max-width: 720px; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(196,30,42,0.15);
+  border: 1px solid rgba(196,30,42,0.3);
+  padding: 8px 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red-light);
+  margin-bottom: 28px;
+  animation: fadeInUp 0.8s both;
+}
+.hero-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+  animation: fadeInUp 0.8s 0.15s both;
+}
+.hero h1 .accent { color: var(--red); }
+.hero p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--gray-light);
+  max-width: 560px;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s 0.3s both;
+}
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s 0.45s both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ──── BUTTONS ──── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border: none;
+  transition: all 0.35s;
+}
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+.btn-primary:hover { background: var(--red-light); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+.btn-outline:hover { border-color: var(--red); color: var(--red); }
+.btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* ──── STATS BAR ──── */
+.stats-bar {
+  background: var(--black-light);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 40px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+.stat-item { position: relative; }
+.stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.stat-number {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--red);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 8px;
+}
+
+/* ──── SECTIONS ──── */
+.section { padding: 100px 0; }
+.section-dark { background: var(--black); }
+.section-darker { background: var(--black-light); }
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 16px;
+  position: relative;
+}
+.section-tag::before, .section-tag::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: var(--red);
+  vertical-align: middle;
+  margin: 0 14px;
+}
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.section-header p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ──── SERVICES ──── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: var(--black-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(196,30,42,0.3);
+  box-shadow: 0 20px 60px rgba(196,30,42,0.1);
+}
+.service-img {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.service-card:hover .service-img img { transform: scale(1.08); }
+.service-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
+}
+.service-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+.service-icon svg { width: 24px; height: 24px; fill: #fff; }
+.service-body { padding: 28px; }
+.service-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.service-body p {
+  font-size: 0.92rem;
+  color: var(--gray);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.service-link {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s;
+}
+.service-card:hover .service-link { gap: 14px; }
+.service-link svg { width: 16px; height: 16px; fill: var(--red); }
+
+/* ──── ABOUT SPLIT ──── */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-image {
+  position: relative;
+}
+.about-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+.about-image::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  right: 16px;
+  bottom: 16px;
+  border: 2px solid var(--red);
+  z-index: -1;
+}
+.about-experience {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: var(--red);
+  padding: 24px 32px;
+  text-align: center;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+.about-experience .number {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+.about-experience .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.8);
+}
+.about-text .section-tag { margin-bottom: 16px; }
+.about-text .section-tag::before { display: none; }
+.about-text h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.about-text p {
+  color: var(--gray);
+  line-height: 1.75;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 32px 0;
+}
+.about-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.about-feature-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: rgba(196,30,42,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.about-feature-icon svg { width: 20px; height: 20px; fill: var(--red); }
+.about-feature span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-light);
+}
+
+/* ──── PRODUCTS SHOWCASE ──── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.product-card {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s, filter 0.6s;
+}
+.product-card:hover img { transform: scale(1.1); filter: brightness(0.5); }
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.2) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  transition: background 0.4s;
+}
+.product-card:hover .product-overlay {
+  background: linear-gradient(to top, rgba(196,30,42,0.85) 0%, rgba(10,10,10,0.6) 100%);
+}
+.product-overlay h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.product-overlay p {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s;
+}
+.product-card:hover .product-overlay p { opacity: 1; transform: translateY(0); }
+
+/* ──── WHY CHOOSE US ──── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.why-card {
+  text-align: center;
+  padding: 48px 28px;
+  background: var(--black-card);
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+.why-card:hover::before { transform: scaleX(1); }
+.why-card:hover { transform: translateY(-4px); border-color: rgba(196,30,42,0.2); }
+.why-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 24px;
+  background: rgba(196,30,42,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s;
+}
+.why-card:hover .why-icon { background: var(--red); }
+.why-icon svg { width: 32px; height: 32px; fill: var(--red); transition: fill 0.4s; }
+.why-card:hover .why-icon svg { fill: #fff; }
+.why-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.why-card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* ──── BRANDS / PARTNERS ──── */
+.brands-strip {
+  padding: 60px 0;
+  background: var(--black-light);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+.brands-track {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  animation: scroll-brands 20s linear infinite;
+}
+.brands-track span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.15);
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.brands-track span:hover { color: rgba(255,255,255,0.4); }
+@keyframes scroll-brands {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ──── LOCATIONS ──── */
+.locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.location-card {
+  background: var(--black-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 44px;
+  position: relative;
+  overflow: hidden;
+}
+.location-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--red);
+}
+.location-badge {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  margin-bottom: 20px;
+}
+.location-card h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.location-card p {
+  color: var(--gray);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+.location-details {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.location-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gray-light);
+  font-size: 0.9rem;
+}
+.location-detail svg { width: 18px; height: 18px; fill: var(--red); min-width: 18px; }
+
+/* ──── CTA BANNER ──── */
+.cta-banner {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+}
+.cta-banner-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(135deg, rgba(196,30,42,0.9) 0%, rgba(155,24,34,0.95) 100%),
+    url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80') center/cover no-repeat;
+}
+.cta-banner .container { position: relative; z-index: 2; text-align: center; }
+.cta-banner h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.cta-banner p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+.btn-white {
+  background: #fff;
+  color: var(--red);
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+}
+.btn-white:hover { background: var(--white); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+
+/* ──── HOURS TABLE ──── */
+.hours-table {
+  margin-top: 20px;
+}
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+}
+.hours-row .day { color: var(--gray-light); font-weight: 500; }
+.hours-row .time { color: var(--gray); }
+.hours-row.closed .time { color: var(--red); font-weight: 600; }
+
+/* ──── FOOTER ──── */
+.footer {
+  background: var(--black-light);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-main { padding: 80px 0 60px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 48px;
+}
+.footer-brand p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-top: 18px;
+  max-width: 320px;
+}
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.footer-social a:hover { background: var(--red); }
+.footer-social svg { width: 18px; height: 18px; fill: var(--gray); transition: fill 0.3s; }
+.footer-social a:hover svg { fill: #fff; }
+
+.footer h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  color: #fff;
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+  color: var(--gray);
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--red); }
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.footer-contact-item svg { width: 18px; height: 18px; fill: var(--red); min-width: 18px; margin-top: 3px; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--gray);
+}
+
+/* ──── FLAG STRIPE DIVIDER ──── */
+.flag-stripe {
+  height: 6px;
+  background: linear-gradient(to right, #002868 0%, #002868 33%, #fff 33%, #fff 66%, var(--red) 66%, var(--red) 100%);
+}
+
+/* ──── RESPONSIVE ──── */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .topbar .container { justify-content: center; text-align: center; }
+  .topbar-left, .topbar-right { justify-content: center; }
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,0.98);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-links.active a { padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .hero { min-height: 75vh; }
+  .hero h1 { font-size: 2.4rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .stat-item:not(:last-child)::after { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .about-split { grid-template-columns: 1fr; gap: 40px; }
+  .about-image { order: -1; }
+  .products-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .locations-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:7544441181">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+        (754) 444-1181
+      </a>
+      <span style="color:rgba(255,255,255,0.6)">Mon-Fri 8AM-6PM &bull; Sun 10AM-4PM</span>
+    </div>
+    <div class="topbar-right">
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        Sheridan, WY &bull; Davie, FL
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAC3AQEDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD8/wCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKkitpp0keKJ5FjXc7IpIQep9BQNJvYjooooEFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFSJA79sfWtHSvD11q90Lezt5724Ks/k28ZdtqqWY4HOAAT+Fd1HBV6/wx089DCdenDdmVVm40y7s7aC4ntpYYJ8+VJIhVZMYztJ69RWhHbJCSPL2sDg5HIrufi0c+DfBH/Xo3/oMdericnlhcM6853fZevf/AIBy08YqtVU4o8tooq1aQJI43DNfNvRXPWp05VZcsSCGCS4kCRRtI56Kgya6rSfhpquoqJJvLsoj3lOW/wC+R/XFafh1EhKhFC/QYr0S1cJZqWIUY6scV87jsxq0fdpKx+scPcI4PGL2uMk5W6LRfN7/AJFTx/8AArRPAvwqudaS5ur7Vf8ARysshCRpvZQ2EHse5NeDV9X/AB28TaPcfCCbT4tVspr5ha7baO4RpDhlJ+UHPFfJ5NelgZ1KlJyqPW/+R8pxVhsLhMdGlg4pRUVt3u9/P1HAFjgDJ9q09N8PXGoOBlYVPduT+VVLP74rq9Ju4LcqZZo4x/tMBXRXnKEfc3ODK8DQxFRPEPT1sdFoHw50qKETXQe8k9HO1PyH+Ne6fEHTLPSfgNq8VjaQWcR0+IlYIwgJ3JycdTXjNv440Sxtdsl+rN6RqzfyFdL49+P3hrW/hzd+HrGK+mu7i0jgErRKkasCpOctnHy+lfM0Y4utX5qibV1vtufruLrZFl+XTpYaVOM3CS0acm2urV39587UUUV9efz+FFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQBb0zS7vWLr7NY2s15cbHk8qCMu21FLO2BzgKCSewBNbGg+HrPVdB17UJ9dsNMn02GOS3sLnf51+WcKUiwCMqMsdxHArK0ex1DUbwQaZBc3F2Ud/LtEZn2KhLnC84ChifYHNdUNB/4TbT9T1bQdKstFstA0y3kv431H552ysbTIJDuZnY7iiZ2jNenhklZnNUJvB2ueFdK8L+KrLXvDkuq63e28cekX63LRJYSBtzO6gjeCAox7nORwd9YviF+zH4x0+9imk8M6/eaYtzbywyxyl7W4TrgFhggkcjqDjpmoft2n/Fa08YeKPGvi9dP8TWlnANNsU09cakygIIxsKqm2NOpAySDkk4NL4f8AijQdL8SPd+PdFvfFmnmwlhhtTePFIjuh8qQNn7q7i4HfjGM5r6jD6p6X7rv6X0PLqAdK8JSfDI6q2vXh8cNqZjOjG1/cm12g+d5ueu7jHX2wMmx8Wv8AkTfBH/Xq3/oMdY//AAgviD/hDP8AhLv7HuV8NNdmyGpCM+R52M7A3ritj4tf8ib4I/69W/8AQY6681t9QnZ31/VaGOF/3iOn9WPLamgaXIEfWoas2sioQWIAr85ex9ZQSctXY1rHT9WvMLHc+UD/ANNCP5V0dr8Mbq/jEl1q2fYKXP5kisnTNdsrQgyTdPRSa6mD4maRa2+zFxK3+zGP6mvn8VPFp/uI/gfp2U4bIZxvmNa/k5v8k0b3xE+AekeCPhvNr8OpXt3fL5GEkCLH87KDwBnv614Wa9y+Jnx+0rxp4Bk8PWel3kMriH9/OyBRsIJ4GeuK8NPSvTwntfZ/vt7nx3EH9n/W4rLbez5Vtfe77+ViWGEykAHGa3NM8Mx3jASTsAf7oFY1vKsZBat3T/EtvZEExyPj0wK0r+0t+7M8tjgedPFtW87/AKHa6X8N9FNuHlSadv8AakwP0xXqfjr4Y+FdC+DmqX9lodrDfLYxyLckF5FYlMkFicdT0rxeP4rR20Iji01nPq8uP6Vv+J/j/rPifwVdaENAgt7KW3SGS5BkdlVSvOeAOgrwqNHHOrzVW7XXX9Ln6Pi8y4Zp4OVLCxj7Rxa0g73a01cf1PHKKKK+mPxYKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigCa2uJrWTzIJXhkwV3xsVOCMEZHYgkH61ra7Nos1xZtolreWsK2sK3C30yyl7gL+9ZSqjCFuQp5A7msRRk9atQWiSEbia6qdf2Otio4add2ib3jDxFp/iTX5dQ03RLPwzavHGi6fYSO0cZVApYFyTliCx9ya0/iL8VdY+KOp2F/r01s9xY2UWnw/ZYBEvlRjCZA6tjALdTgZrHsdHtHI3xlvqxrqtJ0TSwVLWtuf98A/wA6c+IPq1nGndo97CcJV8c7Oqop+v8Akcp/wl16NC/sU6jdHSBP9pFgJG8jzcY8zZ03Y43dccVpeOvF1t4i8P8Ahuzgt7iJtPgMbyTKArnCj5cHnpXo9vFpdrGuxLKLjsEFVv2itQs7zwx4Hjtrq3neKCXekMisU+WPqAeK4/8AWbEZk/q0qajFnsZlwNTyXCSxzxKnKNtLd2lvfz7Hhhqa3hWRhuzUNSRSMh+Vc03sfG0nFS95aHS6TotnOw8yLf8AVjXoOkeFtHFtuOm27N6um7+deX2OrX8BHk22/wD4Axro7Pxf4nji2w6TuX1+zOf6189jaNep8E7fOx+q5DmOV4b+NQcn5U7/AKHuvxu8PaVpnwUuZbPTLK0lxa/vILdEbl1zyBmvk2vYPHvxA+IOu+B5dP1vw99g0U+TuufsMkeNpGz5mOOSBXj9elgqcqdO0nd39T5LifF0cZjY1KEHGKilZrl6voWLWJXYbhmur0TTbWR13W8bf7yg1yMMjxkbVz+Fa9jq+pwEGC23+n7pjWmIjKcbRdjDKsThqE06sL/K56/pen2sNqCltCh9VjUf0r1j4ngL8C9WCjaP7Oi4HH8SV802/i7xYsQWPTCV9fsjmul8TfET4lan4JurDUtDe30N7dY5Z/7OdAIwRg7z06DmvnaGCqxrc8pLddfM/U8dxHgamAnQpUppuMl8FlqrfceO0UUV9afgoUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFACpyfSrUFqJcZZh9KqL83tVuCF2xtlK0pbHdh4pvWNzUtNChnI3SSfgR/hW/p/gjTrgjzGnP0cf4VgWljetjy73YfcVu2Om+IOPI1OIf7y/wD2NePiJTS92pb7/wDI+7yyhh217TBufpyv85HSRfDHQ9gJS4Yn1l/+tVf40/D7RfBeg+FLrSoJIptQike4aSUvuICYwD0+8aWOx8axoNl/YuP9pR/8TVb4wJ4xTRPDA8TvYvaeU/2E2mN23CZ3YH+7+tcWBlWddc1ZSXa7Pc4hp4GGWz9jl8qUtPecIpLVdU3vt8zy81Pa8EVAafGhc8HBr6bofkNFuM00rnXaK2GWvSNEObY/SvHbPTr6QjybnYf98iuk0/RfFwjJtb87cdPP/wAa+cx+HjUWs0vU/XOH82r4V6YWc/8ADZn0P8fD/wAWOufpaf8Aoa18emvYfH2n/FSz8DyHxHdNP4dPlbh5sLdxs6fN1xXj1engafs6VuZPXofG8U4t43HRqOlKn7qVpKz3evoXLEfMK7LQT8y1w8KSMf3ZwfrWvYxa2CPszMT2wy/1rTEw542ul6kZRi5YeafspS9Fc9nsCfsg+leofFE/8WM1b/sHRf8AoSV80wXfjmCIbIpXQf8ATKNv5V0vibxv8UJ/BN1p+r6PImiSW6pJcNp+0LGCuDvHA6DmvncPgpQq8ynF6rZ+Z+oZjxJSq4GdGWHqxbjJawstVbe+x45RRRX1x+AhRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAKuSfQ1agE4OUKn2NVKmhunhPZh6Gk9UdVGcYv3m16GzaX17b4Js/NH+wf/ANdb2n+NLezZRdWlxD77c/4Vh6brNuGAkJiPqen513WiyR3CKVZZUPcEEV4eLcYr34fjY/S8kVWtJfVcTr2aUv8AJl6x8f6FcIo+3CJvSVGX9cYqT9oHXdN1rwt4IGn6hbXphhlWQW8quUOI+GAPHQ9auSeHNKvYwZ9OtpCe/lgH8xWF8cPAmieEtD8J3ek2f2SbUIXa4xIzByAmCAScfePSvNy76u8QvZ3T87NfofTcUrNY5TUWJdOUNNY8yl8S6O6/E8jNSQMFYZOKjp8Shzg19f0Pwmk2pe6dJo91CHUGVB9WAr0vw7IskJ2sG47HNeS2ejRXeAXdfpg10Fh8OZLsbrfUvKbr8yH+YNfP46lRmvfny/K5+rcP43McPJOjhvaekkvzPor4+KR8DrnII4tP/Q1r49716/49+FfjLwn4Il1C+8RjUNE/dF7UXUp+8Rt+Rhjgkd68gr0MDCMKVoyvqfK8U4mrisdGdak6bUUrNp9XrdFyx+8K7TQfvLXCw2xmOA2K2LHRdTdgbW52ntiQrV4qCnGzlYWT4mtQmnGi5eh7PZf8ei/SvTvij/yQzVv+wdF/6ElfNUNv45s4gYpJZY/Z0f8AnzXSeJ/HPxO/4Qq50vWtIkXRprdY3uX08rtjyCp3rwOg5NfO4bBONXmjUi9Vs/M/Tsy4jjPAzo1cLVg3GSu4aaq299jx2iiivrz8BCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACprS9uLGUSW8zwuO6NioaKTSasy4zlCSlB2aO20j4p6hZhY72GO9jHG4fI/5jj9K3fi/wDEbSPHfhvwnBpxnS50+OSO4imTG0kIAQRkEHaa8sorjjg6FOp7WEbPyPoavEOZYjCSwWIqc8HbfVqzT336dbhSqxQ5FJRXafOJtO6NjTNXit3Hmqyj1HNel+E9Ttb0YhnjkbH3Qfm/LrXjlKrFGDKSrDkEHBFedisFHExtezPsMn4krZVUUpQU4/c/v/4B9gfHz/kh9z9LT/0Na+Pq6e7+JfiXUPDMugXmqzXulybP3Vxhyu0grhj8w6dM1zFaYShLDwcJPqcvEGa0s3xUcRSi4pRSafe7f6lm1uFicbsgetdr4buYZ3XZIrHjgHn8q4GlVijAqSpHQitK9H20bXscuXZrPAVFJx5l9x9C2nFqv0r074on/ixmrf8AYOi/9CSvkzSvHus6SoRbn7REP+WdwN4/Pr+teqa1+0TY+J/hpqXh680qazv5bVYIpYXEkTFSvXOCvC+9fOUstr0Kylurrb1P1qvxfluY4CpRu4T5JKzW75ejV199jwqiiivrD8ICiiigAooooAKKKKACiiigAooooAKK1PDPhbWfGmtW+j6Bpd5rWq3G7ybKwgaaaTCljtVQScAE/QV1PiT4B/ErwdotzrGu+AvEej6VbYM17e6ZNFDHkhRuZlAGSQOe5FAHBUUV13gv4Q+OPiPZ3F34V8I614jtbeQRTTaXYyXCRuRkKxQEA45xQByNFaHiDw9qnhTWbvSNa0+50rVLR/LuLO8iaKWJsZwysAQcEdaz6ACiuw8GfBzx38RdPmv/AAt4P1vxFZQy+RLcaZYS3EaSYB2llUgHBBx7iud1vQ9R8Navd6Vq1jcabqdpIYbi0uozHLC46qynkEehoAo0UUUAFFbvg7wH4k+IeqSab4X0LUfEOoRxGd7XTLZ55FjBALlVBOAWAz7iuz/4Zc+MP/RL/Fv/AIJrj/4igDy+iup8W/Crxp4CjEniXwlrmgRE4EmpadLAhPoGdQDXLUAFFFeh+B/2ePib8SbFb3wz4E17WbFvu3dvYv5LfSQgKfwNAHnlFdx49+BvxC+F8KzeLPBmt6BbMdoub2ydISfQSY259s1w9ABRRXpnhD9mX4r+PdOTUNB+HviHUbCQbo7pLB1ikHqrMAGH0NAHmdFdd48+EPjf4Xyoni3wnrHh3zDiN9Rs5Ikc+iuRtb8DXI0AFFegeH/2ffib4r0a11fRfh/4k1XS7td9ve2elzSxSrkjKsqkEZBHHpV9v2XvjAilj8MPFoA5P/EmuP8A4igDzCitLX/DWr+FNRew1vS73R75OWtb+3eCUfVWANZtABRXqPhb9lz4ueNdNj1DRfh14ivbGQbo7kWDpHIPVSwAYe4rmfHfwn8Z/DC4jh8W+FtX8OPIcRnUrN4Vk/3WYYb8CaAOUooooAKKKKACiiigD9B/+CRXwp/tXxx4s+IV1Dug0m2XS7J2HHnzfNIR7rGoH0lr7tj13w3+1X8LviN4agKtZLe6j4XuWJ3bZovlEo/Eo4+gryr9nTQX/Za/YOXWWs5H1s6TP4gmgjjLSSXU67oIyo5yAYUP0NfPf/BKXxr4g0H4h+MvCOv2OowQa9ANVhnu7d0U3UTYk5Ixl0kz/wBs6APz08RaDeeFvEGp6LqMRg1DTrmS0uIj1SSNirD8wa/Ub/gj7/ySfx3/ANhuP/0QtfMn/BTz4Tf8K8/aPuNdtofL0zxZbLqSED5ftC/JOPrkK5/66V9N/wDBH3/kk/jz/sNx/wDohaAPh79uf/k7X4mf9hP/ANpJXhVe6/tz/wDJ2vxM/wCwn/7SSvCqAP1m/wCCQv8AyQnxd/2Mb/8ApNBX5+/tkf8AJ0/xQ/7Dtz/6FX6Bf8Ehf+SE+Lv+xjf/ANJoK/P39sj/AJOn+KH/AGHbn/0KgDxuiiigD7b/AOCSX/JyGuf9i1cf+lFvX2H+2H+3bL+yr450Xw8ng1PEg1HTvt5uG1E23l/vXTbt8p8/cznPevjz/gkl/wAnIa5/2LVx/wClFvWt/wAFff8Akt3gz/sXR/6UzUAfVH7N37fvgT9qPWZPBGteHz4d1u9iYQ6dqEiXdpfqAS8asVGWwCdjLyAcE9K+PP8Ago7+yDpXwK1zTvGng61+xeEtcna3n09MlLG7wWAT0jdQxC/wlWA4IA+X/gfqd7o/xn8CXunOyX0Ou2TQlDyW89OPx6fjX65f8FOLW2uP2RPEbzhTJBe2MkBPUP8AaEXj/gLP+ZoA+Sf+CaP7ImkfFe7vviP4zsE1LQNLufsum6bcLmG6uVAZ5JFPDIgKgKeCxOfu4Pv/AO0x/wAFL9E+Bnja78E+EPDMfifUNKYW99cy3P2e1t5AOYUCqS5XofugEY5wceq/8E89OttO/Y/8AfZVX9/FdTyEfxSG6mzn8sfhX4o+Mb651Pxdrl5esz3lxfTzTs/UyNIxYn3yTQB+wn7K/wC3P4U/a1ub/wAF694ci0TX5LZ3OmXMi3dpqEI++FLKMkDkow6ZIJwcfCv/AAUN/ZYsP2ePiTY6p4ZgNv4P8SLJLa22SRZzoR5sIJ/g+ZWXPYkfw15v+xbqN1pf7Vfwxms2ZZX1qGBtveOTKSD6bGav0K/4K32NtN+ztoFzKB9pg8RwrCe+Gt59w/QflQB5h/wTM/Y+0XX9AX4teM9Oi1TzJ3i0Gwuk3xII22vcsp4Y7wVXPA2lupUjsvjz/wAFV9K+HvjnUPDfgnwrH4oi02Zra41W7vDDDJIpwyxKqksoII3kjOOARgn6C+CK/wDCNfsSeFpdHG2aDwUl1CY+pmNqZM/UuSfrX4TsxdizEsxOST1NAH7X/s1ftYeBv22/DOueGNa8OQ2eqw2+7UPD2oFbqC4gJ2+ZGxUbgGIByAVJXrwa/NT9uD9muP8AZq+Mkul6X5j+FtWh+36S0p3NGhYh4S3cowxk8lShPJNbf/BNbUruw/a/8IR2zMI7uC9guAOjR/ZZH59tyKfwFfT3/BYqytm8L/DO7IUXiXl7EpxyUKRFvwyq/nQB9G/sU6gdJ/Yt8CXwj802ukTzbM43bZZTjPbpXyzYf8FjpjdxC9+FiLbbh5hg1slwO+AYACfxr6q/YjsY9U/Y08AWczMsNxpU0LspwQrSygkfga8i03/glD8FvtkTf8JF4ov1Q7mgOoW2HHodsIOPoRQB6x8cfA3gz9r79l2XXPsSP9r0VtY0S/uIgtzZS+UZFGeoGRtdc4Iz7Gvg3/glj8FtA+Jnxb17xD4gs4tSh8LWsM1paXCho/tMrsEkZTwdgjcgHuQeoFfaH7bXjfUP2cP2V5tG8C+F5jpUlmNBW9gYeTo9uyCIMwJLkkHapxgMQWOcBvzU/Yz/AGo5v2WviZNq9xYyap4d1SAWmqWkJAl2BtySx54Loc8HAIZhkZyAD70/bS/4KBeI/wBm/wCJ9t4N8OeFdPv3WyivJ77VjJtk3lsLGqMvA28sSecjHHO58Nf2zvg5+058Fbuy+Kl14e8M3Nyz2WoaFq16gV8AFZoS2Gwd2Q3VWU88AntIvij+zX+15pFpb6nf+GfEU23EVjre22v4CeqoH2yA+uw4Pqa8h+M//BKDwJ4l0y5vPhxqd34U1cKXhs7yZrqxlPUKS2ZEz/e3Nj+6aAPzA+JXh/TPCnxB8RaPomqwa5o1lfzQ2WpW0gkS5gDny3DDg5XHTvmubra8aeDtX+H3ivVfDevWjWGsaXcPbXVu/Ox1ODgjgg9QRwQQRWLQAUUUUAFel/s2fC1/jP8AHPwb4QEZktr+/Q3eBnFsn7yY/wDftG/HFeaV6x+zb+0LqP7NPjq48WaPoem63qclm9lENT8zbCHZSzLsZfmIXH0J9aAP2G/ae/aw8K/snaP4ek1rTL3U31WSSG1stN8sOiRqu5zuIAUbkH414Ro//BXL4c6nq9lZzeEvEVjFcTpE91M0BSFWYAu2HzgZycelfnz+0z+074l/aj8W6brniGzstN/s6z+x29np+/ylG9mZ/nYncxIB56KK8eoA/Y3/AIKh/ChfiF+zp/wktnGJtQ8KXS36unJa1kxHMB7cxv8ASOuI/wCCPv8AySfx5/2G4/8A0QtfN9n/AMFN/HX/AAquLwJqnhXw9rem/wBkf2PcXN2J/OuYvK8os+JANxXqQOvNcL+zF+254p/Za8N6xo2gaDpGrQandreSSal5u5GCBMDY6jGB3oA9V/ay/Yv+M/xD/aM8d+I/D3ge51LRdQv/ADbW7S7t0EqeWgyA0gI5B6ivHNQ/YL+PGlWFze3fw+uYLW2iaaaVr61wiKCzE/vewBr3X/h798R/+hL8Lflc/wDx2sbxp/wVY+IfjTwfrnh+bwp4cs4dVsZ7F7i3Fx5kSyxlCy5kIyAxIyKAPoz/AIJC/wDJCfF3/Yxv/wCk0FfNn7Tf7FHxr8dftA+P/EGheBbnUNH1HV57i1ulu7ZRLGxyGAaQEfiBXn37Mv7c3iv9l3wfqfh3QdA0bVra/vjfvLqPm71cxom0bHUYwgP4mvYf+Hv3xH/6Evwt+Vz/APHaAPBtY/YS+Ovh/SL7VNQ8AXNrYWMElzcTte2pEcaKWdjiXPABPFeC19pfEP8A4KmfEH4ieA/EHha58LeHbC21mwmsJbm18/zY0kQoxXMhGcE9RXxbQB9t/wDBJL/k5DXP+xauP/Si3r2P/gpX+zV8S/jX8VvC+qeCfClzr+n2mii2mnhmiQJJ58rbcO6nowP418Nfs1ftGa1+zH47u/FOhaZYareXNg+ntDqO/wAsIzo5YbGU5zGO/c19Nf8AD374j/8AQl+Fvyuf/jtAHTfsWf8ABOjxn4d+J+j+OPiZZwaJY6JMt5Z6R58c89xcLzGz7CyoithuuSVAxjJrQ/4KwftC6bfWWk/CbRryO6u4bldS1oxNkQFVIhgY/wB47i5HbCeteJfEb/gqH8ZvHOmTWGnTaT4PhlUo82i2zfaMHriSR3Kn3UAjsa+Sby8uNRu5rq6nkubmZzJLNM5d5GJyWZjySTySaAP1X/4JQ/HLT9e+GN98Mr26SLW9DuJLyxhdsGe0lbc20dykhbPoHWvCf2wP+CeXxA0r4pa34k+HuhSeJ/C+s3T3q29iy/aLKSRizxNGSCV3E7SueCAcEc/FvhbxVrHgjxBZa5oGpXOkavZSCW3vLSQpJG3sR+RHQgkHivtPwR/wVu+JWhaZFa+IfDmh+J5o12/bRvtJZPdwmUJ/3VWgDvv+Cf8A+wh4y8G/E2z+IvxE0v8AsGHSUdtM0ud1a4mnZSnmOqk7FUMxAPJbHAA55v8A4KxfHjT/ABX4r0H4a6PdJdJoDve6q8TblW6ddqRZ/vIhYn0MmOoNcP8AFT/gqZ8WPHukz6ZoVvpvgi3mUo9zpqvJd4PULK5wv1VQw7EV8c3NzLeXEs88rzzysXklkYszsTkkk8kk96AP2M/4Jo/G3TPif+z9a+DbqeNte8Ko1jcWkhG6W0ZiYZAO64Pln0Kc9RXxZ+0N/wAE5fid4D8fakfBXhy48WeErmdpbCfT2V5YI2ORFLGSGBXONwBUgA5HIHzJ8P8A4ieJPhZ4ptPEfhTV7nRNZtSfLurZsHB6qwPDKe6sCD3FfaPhb/grx8QtM02ODXfCGg65dIuDdwvLas/uygsufoAPagD1/wD4J1/sR+KPhD4ou/iJ8QLNdJ1X7K9ppekmRZJYg+PMmkKkhSVG0LnOGbOOK+ef+CoHx40/4q/GWw8M6HdJe6R4ShktpLiJtySXkjAzBSOCFCRpn+8rVkfGb/gph8Wfito1zo2ntY+CtLuEMc39jB/tMiHqpmYkqD/sBT718lEkkknJNAH7gfsg/wDJi/hH/sA3X/oc1fiXp2s6hpF5Dd2F9c2V1CweOe3maN0YdCrAgg/Svqv4Y/8ABSDxt8LvhBpnw9sPDGgXemWFnJZJdXPn+cyuXJJxIBn5z27V8kUAfuR41vpfiL+wHqWo6232u81HwB9uuJX5LzfYhJv+u8bvrX58fsEfsw/DD9pyHxRpnizVNZsvEumPHcW9vp11HEs1qw2s21o2JKuACQf414qnpH/BRzxrpfwPi+GEnhnQbzSE0NtBN3L54naAwmLccPt3BT6dRXzT4F8eeIPhn4osfEfhfVbjRtasm3Q3ds2GHYgg8MpHBUggjgigD6V/ab/4J8+PfhX4/u4/A3hrWfF/gyfa9jd2cX2u4jGBujmWNQQwbPzbQCCO+QPtr/gmj4G+KngX4Y6/afEW31LTtNe6iOiadq7Hz4ECt5pCMd0aElMKcchiBzk/MXhX/grv8Q9L06ODXfCOg65cIuDdQvLas/uygsufoAPauU+LH/BUf4sfEPRrjStFg03wTa3ClJLjS1d7sqeoWVydn1VQ3oRQBwX/AAUE8SaV4p/a28eXWkPHLbQywWcksRBV5ooI45eR6OrL/wABr52p0kjSyM7sXdiWZmOSSepJptABRRRQAV1nw8+HsnxEv7u1j8QeHvDxt4hKZvEOpJZRycgbUZvvNznHpXJ11nw8vPBFlf3beONL1zVbJogLePQ7+K0kWTIyWaSKQFcZ4AHPegDu/wDhmO5/6KZ8Mv8Awq4P8KP+GY7n/opnwy/8KuD/AAo/t39n7/oT/iF/4UVn/wDIdH9u/s/f9Cf8Qv8AworP/wCQ6AD/AIZjuf8Aopnwy/8ACrg/wrE8ZfAufwZ4dutXfxx4G1lYCgNlo3iCK6upNzBfkjXlsZyfQAmtv+3f2fv+hP8AiF/4UVn/APIdYvjPVfg/c+HLqPwr4c8Y6frpKeRcarrNtcW6jcN25EtkY5XIGGGDjr0oAZ+zZ4M0n4ifHrwL4Z123a70fVNVhtbqBZGjLxseRuUgj6g17P4t/ZbisP22E8GWHgzWv+FcnxHaWZKw3LxfZHMfmf6R1x8zfNu49eK8u/Y/u4LH9p/4Z3FzNHbwR63AzyysFVRnqSeBX1z4y/bC+JGn/t3x+DrLx0E8AnxPZ2ZtVitmg+zOYvMXzdmcfM3O7j1oA+R/2vfh3oXwo/aN8aeFPDNo1joemzwpbW7yvKUDW8Tn5nJY/MzHk13f7FnwU8E+PI/H/jX4n2s9x4B8JaYsk6wzPCXuJXxGAyMCcKr8Z6stYX7e19bal+1x8RLm0uIrq3kubfZNA4dG/wBEhBwRweQa+iPBviv4Xfs8/sQeF9C8faPN4vk+IN6+q3+kaRqAgmREKNCZGRgyqFSE7cjlj6GgD5t/bR+B1j8Avjxqug6LE8fhm7gi1HSN0jSf6PIvTexJba6uuSScAV1f/BPz4KeDfjl8VPEek+N9Ll1bS7DQJtQjghuZIG81ZoVB3IwJ+V2GDxzXqv7Z2ueDf2g/2W/h38TfCCDTJfDk7aFPpF7drJeQ2v3EDnJZ9rRxkHk4mJPeuZ/4JY69aeHfjV4wu7u+trADwtceXJcyqilxPAQBuOCeOntQB0Xh/wCCXwH/AGi/hD8SdY8EeDPE3w41jwjpzagl9qd689rOVSRxGxdmHPlkEDBG4HJ6V8c/CXQbLxV8VPBui6lEZtO1LWbOzuYlYqXiknRHGRyMgnkc191fCH9pnxF+1F+zz8e/DnxP1fT7l9P0L7bpjRpHZSvKEmcKAm0Ph4ouMd8HIOK+IvgVNHbfG74fTTSLFFH4h09nkdgqqBcxkkk9BQB9qfFjwD+yb8NPjpN8Kde8DeI9HuC1vEfEdnq8skUDTxq6sVeQ4UbwCdrYxnBFfKX7VX7P1z+zV8YdR8HyXh1Kw8pLzT7112vNbvnbuA4DAqynHBK5GM19pftL/soRfF79qO++IepfEPwboPgB2spLq4uNWX7UI4YY1kUJjbklCAS3fPtXyx+3l8dNG+Pvx/vNY8OOZ9A02zi0qyuipX7SsbOzSAHkAvI2M9gDxmgDd8R/Avwfrn7C3hP4meF9Jlh8Ywa5/ZGtyLcySCbLSKuEZiqk7rc8Afer0P8Aa3/Yl8OfDXwd8Kj4Lt3Gt3+pQeG9ef7S8wfUJoo2Q7WJCHPmHaMDDLWr/wAE0df8O+LvBXj34a+Lr+1tNMXUNN8R2wu5ljVnhnRpANxA5MMAPsTXp/7Jfxk8N/HTxd8W4fFmqW1pZ2HjSDxnpDXcyoAqMUTbuPRUgizj+9QB8Z/tyfDvwN8I/jrceDfAlg1jY6TYW0d6XuZJ2lunXzGbLscfK8YwOAQa9L/Yj/Z1+G/jTwHrHjb4s2U11ot1rtj4b0ZEupbcG6lcBmJRlJH7yMegAb0r5j+MfjuX4ofFbxb4rlYsdY1Oe7QH+GNnOxfwXaPwr7x8e/EL4Pfs7/Ab4SfC3xp4dvPG95Bap4iuI9C1X7OLW+Ysd0jRuCzBnkUA9Ag9qAPiD9oX4WS/Bb40+LvBrq4h0y+dbVn6vbN88LZ75jZPxzXun7Enwb+HHxA+Hvxf8V/ELw7d+I4fCFjBfwW1neS28jLsuHkUbGUEt5agZ6V0n/BRqbw58VtM+Gvxp8MTw+T4j00WV/Z+cjT28qZeMSKD94AyIT/0yHtVj/gnx8Qn+GvwV/aI1ux1O107XLPR4LrTvtLIS00cV0y7Ufh8Nt4wetAFbx18C/g58Tf2VvFfxX+HvhrxD8Pb7w1dpC1prN008F8C0YIUuzZP70YKkYK4IOc14B+yZ8P9E+Kf7RPgnwr4ktWvdE1K6eK6t0laIuohkYDcpBHKjoa+pte+O2p/tP8A7AHxEvviBqdhc+KfD2tWz6f9n2W0ki7oBkxKQG4lmHAx36jNfOv7C17b6d+1l8Obm7nitbeO9kLzTOERf9HlHJPAoA+gfiZ4N/Z/8B+JPE+gJ+zv8Q72TSZ7i0XVLa6umtpDGWUSqTJynG7PpXwPX6r/ABb0H9pTxF4t8XN4e+N3gmz8GXtzc/YrCe/t98dm5bbG3+jschDj7xPvX5VSJ5cjpuDbSRuXofcUAetaT+zncatpVlfD4ifDq0F1Ckwt7vxNDHNFuUHa6EZVhnBB6EEVb/4Zjuf+imfDL/wq4P8ACquk618C49Ks01Pwp47n1FYUFzLba/aRxPLtG8optCVUtnAJJA7mrX9u/s/f9Cf8Qv8AworP/wCQ6AD/AIZjuf8Aopnwy/8ACrg/wo/4Zjuf+imfDL/wq4P8KP7d/Z+/6E/4hf8AhRWf/wAh0f27+z9/0J/xC/8ACis//kOgDzXxr4TfwT4hn0l9V0nWmhVG+2aJeLd2r7lDYWReCRnB9CCKwq3fG1x4buvEM8nhKy1LTtDKp5Nvq90lxcK20btzoiKQWyRhRgY61hUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf//Z" alt="All Doors Hardware" />
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#locations">Locations</a>
+      <a href="#contact" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-accent"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Now Shipping from Two Locations</div>
+      <h1>Complete <span class="accent">Commercial Door</span> Solutions You Can Trust</h1>
+      <p>From high-security access control to precision-engineered door hardware — All Doors Hardware delivers expert solutions for every commercial project, coast to coast.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn btn-primary">
+          Explore Services
+          <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+        </a>
+        <a href="tel:7544441181" class="btn btn-outline">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Shipping Locations</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Products Available</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Customer Satisfaction</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">7 days</div>
+        <div class="stat-label">Available 7 Days A Week</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section section-dark" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">What We Do</div>
+      <h2>Our Professional Services</h2>
+      <p>Comprehensive commercial door solutions from consultation to installation, backed by industry expertise and dedication to quality.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/commercialDoorsAndFrames.jpg" alt="Commercial Doors" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 19V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14H3v2h18v-2h-2zm-8 0H9v-6h2v6zm4 0h-2v-6h2v6z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Commercial Doors & Frames</h3>
+          <p>Premium hollow metal, wood, and aluminum doors and frames engineered for durability, security, and code compliance in any commercial application.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/doorHardware.jpg" alt="Door Hardware" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Door Hardware</h3>
+          <p>Complete selection of commercial and residential grade locksets, closers, hinges, exit devices, and specialty hardware from industry-leading manufacturers.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/accessControl.png" alt="Access Control" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11V11.99z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Access Control Systems</h3>
+          <p>State-of-the-art electronic access control solutions including card readers, keypads, biometric systems, and integrated security platforms.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/cctvSystems.png" alt="security and CCTV systems" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 10.48V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4.48l4 3.98v-11l-4 3.98zm-2-.79V18H4V6h12v3.69z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>security and CCTV systems</h3>
+          <p>Protect your facility with advanced commercial surveillance solutions. Our high-definition cameras, monitoring platforms, and integrated security systems deliver real-time visibility and reliable protection for people, property, and assets. Engineered for performance, scalability, and peace of mind.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/automaticDoorOperators.png" alt="Automatic Doors" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3 2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 12.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Automatic Door Operators</h3>
+          <p>Enhance accessibility and compliance with our low energy door operators. Designed to meet ADA requirements, these systems provide smooth, controlled door opening for all users while maintaining safety, efficiency, and energy savings. Ideal for commercial, healthcare, and institutional environments.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-img">
+          <img src="images/budgeting.png" alt="Estimating/Budgeting" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <h3>Budgeting, estimating, and project management.</h3>
+          <p>Streamline your commercial projects with our comprehensive planning services. We provide accurate estimating, detailed budgeting, and expert project management to ensure your construction and security installations stay on schedule and on budget. From blueprints to final delivery, we help you plan efficiently, minimize risk, and maximize results.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-darker" id="about">
+  <div class="container">
+    <div class="about-split">
+      <div class="about-image">
+        <img src="images/mainImage.png" alt="All Doors Hardware Team" />
+        <div class="about-experience">
+          <div class="number">10+</div>
+          <div class="label">Years of Excellence</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-tag">About Us</div>
+        <h2>Your Trusted Partner in <span style="color:var(--red)">Commercial Door</span> Solutions</h2>
+        <p>At All Doors Hardware, our mission is to provide top-quality commercial door solutions that combine functionality, security, and style. We are dedicated to meeting the diverse needs of our clients while ensuring exceptional customer service and value, no matter the budget.</p>
+        <p>With years of experience in the door hardware industry, our team of experts brings a wealth of knowledge and skill to every project. We stay updated on the latest technologies and trends to provide innovative solutions that enhance safety and efficiency.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            </div>
+            <span>Mechanical & Electronic Solutions</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            </div>
+            <span>Consultation to Installation</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            </div>
+            <span>Coast-to-Coast Shipping</span>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            </div>
+            <span>Code-Compliant Products</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Request a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- WHY CHOOSE US -->
+<section class="section section-darker">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Why Choose Us</div>
+      <h2>The All Doors Advantage</h2>
+      <p>We combine expertise, quality products, and exceptional service to deliver results that exceed expectations.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <h3>Trusted Quality</h3>
+        <p>Only the highest-grade materials and products from industry-leading manufacturers.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        </div>
+        <h3>Expert Guidance</h3>
+        <p>Our seasoned team helps you make informed decisions tailored to your specific needs.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+        </div>
+        <h3>Fast Shipping</h3>
+        <p>Two strategic locations — Sheridan, WY & Davie, FL — for faster delivery nationwide.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        </div>
+        <h3>Value for Every Budget</h3>
+        <p>Competitive pricing without compromising quality — solutions for every budget tier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS MARQUEE -->
+<div class="brands-strip">
+  <div class="brands-track">
+    <span>Von Duprin</span><span>•</span>
+    <span>LCN</span><span>•</span>
+    <span>Schlage</span><span>•</span>
+    <span>ASSA ABLOY</span><span>•</span>
+    <span>Hager</span><span>•</span>
+    <span>Dorma</span><span>•</span>
+    <span>Sargent</span><span>•</span>
+    <span>Yale</span><span>•</span>
+    <span>Stanley</span><span>•</span>
+    <span>Allegion</span><span>•</span>
+    <span>HES</span><span>•</span>
+    <span>Norton</span><span>•</span>
+    <span>Von Duprin</span><span>•</span>
+    <span>LCN</span><span>•</span>
+    <span>Schlage</span><span>•</span>
+    <span>ASSA ABLOY</span><span>•</span>
+    <span>Hager</span><span>•</span>
+    <span>Dorma</span><span>•</span>
+    <span>Sargent</span><span>•</span>
+    <span>Yale</span><span>•</span>
+    <span>Stanley</span><span>•</span>
+    <span>Allegion</span><span>•</span>
+    <span>HES</span><span>•</span>
+    <span>Norton</span><span>•</span>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<section class="cta-banner" id="contact">
+  <div class="cta-banner-bg"></div>
+  <div class="container">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Whether you need a single door closer or a full building package, our team is ready to help. Get a free consultation and quote today.</p>
+    <a href="tel:7544441181" class="btn btn-white">
+      Call (754) 444-1181
+      <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section class="section section-dark" id="locations">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Locations</div>
+      <h2>Shipping Coast to Coast</h2>
+      <p>Two strategic warehouse locations for faster delivery across the entire United States.</p>
+    </div>
+    <div class="locations-grid">
+
+      <div class="location-card">
+        <div class="location-badge">West Coast Hub</div>
+        <h3>Sheridan, Wyoming</h3>
+        <p>Our western distribution center serves the Mountain West, Pacific Northwest, and surrounding regions with rapid fulfillment.</p>
+        <div class="location-details">
+          <div class="location-detail">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            Sheridan, WY
+          </div>
+          <div class="location-detail">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+            (307) 381-9484
+          </div>
+        </div>
+        <div class="hours-table">
+          <div class="hours-row"><span class="day">Monday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Tuesday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Wednesday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Thursday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Friday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row closed"><span class="day">Saturday</span><span class="time">Closed</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">10:00 AM – 4:00 PM</span></div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <div class="location-badge">East Coast Hub</div>
+        <h3>Davie, Florida</h3>
+        <p>Our eastern distribution center covers the Southeast, Northeast, and Midwest with efficient coast-to-coast fulfillment.</p>
+        <div class="location-details">
+          <div class="location-detail">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            Davie, FL
+          </div>
+          <div class="location-detail">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+            (754) 444-1181
+          </div>
+        </div>
+        <div class="hours-table">
+          <div class="hours-row"><span class="day">Monday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Tuesday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Wednesday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Thursday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span class="day">Friday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row closed"><span class="day">Saturday</span><span class="time">Closed</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span class="time">10:00 AM – 4:00 PM</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FLAG STRIPE -->
+<div class="flag-stripe"></div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="images/mainImage.png" alt="All Doors Hardware" style="height:60px" />
+          </a>
+          <p>Your trusted partner for commercial door solutions. We combine quality products, expert knowledge, and exceptional service to secure what matters most.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M16 4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4zm2 12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8zm-6-7a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-1.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Commercial Doors & Frames</a></li>
+            <li><a href="#">Door Hardware & Locks</a></li>
+            <li><a href="#">Access Control Systems</a></li>
+            <li><a href="#">CCTV & Surveillance</a></li>
+            <li><a href="#">Automatic Door Operators</a></li>
+            <li><a href="#">Fire-Rated Assemblies</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+            <span>(754) 444-1181</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>info@alldoorshardware.com</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>West: Sheridan, WY<br>East: Davie, FL</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            <span>Mon–Fri: 8AM–6PM<br>Sun: 10AM–4PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 All Doors Hardware. All rights reserved.</span>
+      <span>
+        <a href="#" style="color:var(--gray);margin-left:16px;">Privacy Policy</a>
+        <a href="#" style="color:var(--gray);margin-left:16px;">Terms of Service</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile toggle
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('active');
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('navLinks').classList.remove('active');
+    }
+  });
+});
+
+// Scroll reveal animations
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.service-card, .product-card, .why-card, .location-card, .stat-item').forEach((el, i) => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = `opacity 0.6s ${i * 0.1}s, transform 0.6s ${i * 0.1}s`;
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
