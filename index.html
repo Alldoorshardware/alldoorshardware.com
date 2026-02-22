@@ -813,6 +813,203 @@ a { text-decoration: none; color: inherit; }
   color: var(--gray);
 }
 
+/* ──── CONTACT SECTION ──── */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -300px;
+  right: -300px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(196,30,42,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-info { padding-top: 10px; }
+.contact-info h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.contact-info > p {
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  font-size: 1rem;
+}
+.contact-detail-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.contact-detail-card:first-of-type { border-top: 1px solid rgba(255,255,255,0.06); }
+.contact-detail-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: rgba(196,30,42,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-detail-icon svg { width: 22px; height: 22px; fill: var(--red); }
+.contact-detail-text h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.contact-detail-text p, .contact-detail-text a {
+  color: var(--gray-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.contact-detail-text a:hover { color: #fff; }
+
+.contact-form-card {
+  background: var(--black-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 44px;
+  position: relative;
+}
+.contact-form-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red), var(--red-dark));
+}
+.contact-form-card h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.contact-form-card > p {
+  color: var(--gray);
+  font-size: 0.92rem;
+  margin-bottom: 32px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-light);
+  margin-bottom: 8px;
+}
+.form-group label .required { color: var(--red); margin-left: 2px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  outline: none;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--gray);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--red);
+  background: rgba(196,30,42,0.05);
+  box-shadow: 0 0 0 3px rgba(196,30,42,0.1);
+}
+.form-group select {
+  cursor: pointer;
+  color: var(--gray);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+.form-group select option {
+  background: var(--black-card);
+  color: var(--white);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+.form-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 44px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border: none;
+  background: var(--red);
+  color: #fff;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  transition: all 0.35s;
+  width: 100%;
+  justify-content: center;
+}
+.form-submit-btn:hover { background: var(--red-light); transform: translateY(-2px); }
+.form-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.form-submit-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+.form-status {
+  margin-top: 16px;
+  padding: 14px 18px;
+  font-size: 0.9rem;
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+.form-status.success {
+  display: flex;
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.3);
+  color: #22c55e;
+}
+.form-status.error {
+  display: flex;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #ef4444;
+}
+.form-status svg { width: 20px; height: 20px; fill: currentColor; min-width: 20px; }
+
 /* ──── FLAG STRIPE DIVIDER ──── */
 .flag-stripe {
   height: 6px;
@@ -852,6 +1049,9 @@ a { text-decoration: none; color: inherit; }
   .products-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; }
   .locations-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-form-card { padding: 28px; }
+  .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -1170,16 +1370,122 @@ a { text-decoration: none; color: inherit; }
   </div>
 </div>
 
-<!-- CTA BANNER -->
-<section class="cta-banner" id="contact">
-  <div class="cta-banner-bg"></div>
+<!-- CONTACT US SECTION -->
+<section class="section section-dark contact-section" id="contact">
   <div class="container">
-    <h2>Ready to Start Your Project?</h2>
-    <p>Whether you need a single door closer or a full building package, our team is ready to help. Get a free consultation and quote today.</p>
-    <a href="tel:7544441181" class="btn btn-white">
-      Call (754) 444-1181
-      <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
-    </a>
+    <div class="section-header">
+      <div class="section-tag">Get In Touch</div>
+      <h2>Contact Us</h2>
+      <p>Have a question about our products or need a custom quote? Fill out the form below and our team will get back to you within 24 hours.</p>
+    </div>
+    <div class="contact-grid">
+
+      <!-- LEFT: Contact Info -->
+      <div class="contact-info">
+        <h3>Let's Talk Doors</h3>
+        <p>Whether you need a single door closer or a complete building package, our experts are here to help you find the right solution.</p>
+
+        <div class="contact-detail-card">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Phone</h4>
+            <p><a href="tel:7544441181">(754) 444-1181</a> — East Coast</p>
+            <p><a href="tel:3073819484">(307) 381-9484</a> — West Coast</p>
+          </div>
+        </div>
+
+        <div class="contact-detail-card">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Email</h4>
+            <p><a href="mailto:info@alldoorshardware.com">info@alldoorshardware.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail-card">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Locations</h4>
+            <p>Sheridan, WY (West Coast Hub)</p>
+            <p>Davie, FL (East Coast Hub)</p>
+          </div>
+        </div>
+
+        <div class="contact-detail-card">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
+          <div class="contact-detail-text">
+            <h4>Business Hours</h4>
+            <p>Mon – Fri: 8:00 AM – 6:00 PM</p>
+            <p>Sunday: 10:00 AM – 4:00 PM</p>
+            <p style="color:var(--red);">Saturday: Closed</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div class="contact-form-card">
+        <h3>Send Us a Message</h3>
+        <p>Fill out the form and we'll respond within one business day.</p>
+        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span class="required">*</span></label>
+              <input type="text" name="first_name" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="required">*</span></label>
+              <input type="text" name="last_name" placeholder="Doe" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address <span class="required">*</span></label>
+              <input type="email" name="email" placeholder="john@company.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number <span class="required">*</span></label>
+              <input type="tel" name="phone" placeholder="(555) 123-4567" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Company Name</label>
+            <input type="text" name="company" placeholder="Your Company (optional)" />
+          </div>
+          <div class="form-group">
+            <label>What do you need help with? <span class="required">*</span></label>
+            <select name="service" required>
+              <option value="" disabled selected>Select a service...</option>
+              <option value="Commercial Doors & Frames">Commercial Doors & Frames</option>
+              <option value="Door Hardware & Locks">Door Hardware & Locks</option>
+              <option value="Access Control Systems">Access Control Systems</option>
+              <option value="CCTV & Surveillance">CCTV & Surveillance</option>
+              <option value="Automatic Door Operators">Automatic Door Operators</option>
+              <option value="Fire-Rated Assemblies">Fire-Rated Assemblies</option>
+              <option value="Quote / Pricing Request">Quote / Pricing Request</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message <span class="required">*</span></label>
+            <textarea name="message" placeholder="Tell us about your project, what products you need, quantities, timelines..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit-btn" id="submitBtn">
+            Send Message
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+          <div id="formStatus" class="form-status"></div>
+        </form>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1295,7 +1601,7 @@ a { text-decoration: none; color: inherit; }
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span>info@alldoorshardware.com</span>
+            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99f0f7fff6d9f8f5f5fdf6f6ebeaf1f8ebfdeef8ebfcb7faf6f4">[email&#160;protected]</a></span>
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
@@ -1320,7 +1626,7 @@ a { text-decoration: none; color: inherit; }
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -1355,12 +1661,70 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.service-card, .product-card, .why-card, .location-card, .stat-item').forEach((el, i) => {
+document.querySelectorAll('.service-card, .product-card, .why-card, .location-card, .contact-form-card, .contact-detail-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(30px)';
-  el.style.transition = `opacity 0.6s ${i * 0.1}s, transform 0.6s ${i * 0.1}s`;
+  el.style.transition = 'opacity 0.6s, transform 0.6s';
   observer.observe(el);
 });
 </script>
+
+<!-- EmailJS SDK — free email delivery service (no backend required) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // ═══════════════════════════════════════════════════════════════════
+  // ██  EmailJS SETUP — Replace these 3 values with your own!      ██
+  // ██  See instructions in the README / setup guide below.        ██
+  // ═══════════════════════════════════════════════════════════════════
+  const EMAILJS_PUBLIC_KEY = 'XYU6s79OqzdE8gR8m';      // from EmailJS dashboard
+  const EMAILJS_SERVICE_ID = 'service_ep6ue8m';      // e.g. 'service_abc123'
+  const EMAILJS_TEMPLATE_ID = 'template_ivkp8m8';    // e.g. 'template_xyz789'
+
+  // Initialize EmailJS
+  (function() { emailjs.init(EMAILJS_PUBLIC_KEY); })();
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('formStatus');
+
+    // Disable button while sending
+    btn.disabled = true;
+    btn.innerHTML = 'Sending... <svg viewBox="0 0 24 24" style="animation:spin 1s linear infinite"><path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z" fill="currentColor"/></svg>';
+
+    // Collect form data
+    const formData = new FormData(form);
+    const templateParams = {
+      first_name: formData.get('first_name'),
+      last_name:  formData.get('last_name'),
+      email:      formData.get('email'),
+      phone:      formData.get('phone'),
+      company:    formData.get('company') || 'N/A',
+      service:    formData.get('service'),
+      message:    formData.get('message'),
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      .then(function() {
+        status.className = 'form-status success';
+        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Message sent successfully! We\'ll get back to you within 24 hours.';
+        form.reset();
+      })
+      .catch(function(error) {
+        console.error('EmailJS error:', error);
+        status.className = 'form-status error';
+        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg> Something went wrong. Please call us at (754) 444-1181 instead.';
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
+      });
+  }
+</script>
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
 </body>
 </html>
