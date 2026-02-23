@@ -433,6 +433,46 @@ a { text-decoration: none; color: inherit; }
 .service-card:hover .service-link { gap: 14px; }
 .service-link svg { width: 16px; height: 16px; fill: var(--red); }
 
+/* Featured service card — full-width horizontal layout */
+.service-card-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+}
+.service-card-featured .service-img {
+  height: 100%;
+  min-height: 300px;
+}
+.service-card-featured .service-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 44px;
+}
+.service-card-featured .service-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+.service-card-featured .service-body p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.service-card-featured .service-badge {
+  display: inline-block;
+  background: rgba(196,30,42,0.15);
+  border: 1px solid rgba(196,30,42,0.3);
+  color: var(--red-light);
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
 /* ──── ABOUT SPLIT ──── */
 .about-split {
   display: grid;
@@ -916,6 +956,7 @@ a { text-decoration: none; color: inherit; }
 /* ──── RESPONSIVE ──── */
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card-featured { grid-template-columns: 1fr 1fr; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-logo-showcase img { width: 320px; }
@@ -944,6 +985,8 @@ a { text-decoration: none; color: inherit; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .stat-item:not(:last-child)::after { display: none; }
   .services-grid { grid-template-columns: 1fr; }
+  .service-card-featured { grid-template-columns: 1fr; }
+  .service-card-featured .service-img { min-height: 240px; }
   .about-split { grid-template-columns: 1fr; gap: 40px; }
   .about-image { order: -1; }
   .why-grid { grid-template-columns: 1fr; }
@@ -1145,6 +1188,22 @@ a { text-decoration: none; color: inherit; }
         <div class="service-body">
           <h3>Budgeting & Project Management</h3>
           <p>Streamline your commercial projects with comprehensive planning services. Accurate estimating, detailed budgeting, and expert project management from blueprints to delivery.</p>
+          <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="services/hotels-multifamily.html" class="service-card service-card-featured">
+        <div class="service-img">
+          <img src="images/hotelsMultifamily.jpg" alt="Hotels & Multi-Family Solutions" />
+          <div class="service-img-overlay"></div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M7 13c1.66 0 3-1.34 3-3S8.66 7 7 7s-3 1.34-3 3 1.34 3 3 3zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9c0-2.21-1.79-4-4-4z"/></svg>
+          </div>
+        </div>
+        <div class="service-body">
+          <span class="service-badge">Specialty Solutions</span>
+          <h3>Hotels & Multi-Family Solutions</h3>
+          <p>Purpose-built door, hardware, and security packages for hospitality and multi-family residential properties. From guest room lock systems and common-area access control to fire-rated corridor assemblies and ADA-compliant entries, we deliver coordinated solutions designed for high-occupancy environments — covering everything from boutique hotels to large-scale apartment communities.</p>
           <span class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></span>
         </div>
       </a>
@@ -1362,6 +1421,7 @@ a { text-decoration: none; color: inherit; }
               <option value="Access Control Systems">Access Control Systems</option>
               <option value="CCTV & Surveillance">CCTV & Surveillance</option>
               <option value="Automatic Door Operators">Automatic Door Operators</option>
+              <option value="Hotels & Multi-Family">Hotels & Multi-Family Solutions</option>
               <option value="Fire-Rated Assemblies">Fire-Rated Assemblies</option>
               <option value="Quote / Pricing Request">Quote / Pricing Request</option>
               <option value="General Inquiry">General Inquiry</option>
@@ -1470,6 +1530,7 @@ a { text-decoration: none; color: inherit; }
             <li><a href="services/access-control.html">Access Control Systems</a></li>
             <li><a href="services/cctv-systems.html">CCTV & Surveillance</a></li>
             <li><a href="services/automatic-doors.html">Automatic Door Operators</a></li>
+            <li><a href="services/hotels-multifamily.html">Hotels & Multi-Family</a></li>
             <li><a href="services/budgeting.html">Budgeting & Estimating</a></li>
           </ul>
         </div>
