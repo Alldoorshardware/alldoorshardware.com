@@ -181,51 +181,11 @@ a { text-decoration: none; color: inherit; }
   animation: fadeInRight 1s 0.3s both;
 }
 .hero-logo-showcase img {
-  width: 280px;
+  width: 420px;
   height: auto;
-  filter: drop-shadow(0 20px 60px rgba(196,30,42,0.25));
+  filter: drop-shadow(0 20px 80px rgba(196,30,42,0.3));
   position: relative;
   z-index: 2;
-}
-.hero-logo-ring {
-  position: absolute;
-  width: 340px;
-  height: 340px;
-  border: 2px solid rgba(196,30,42,0.2);
-  border-radius: 50%;
-  animation: ring-rotate 20s linear infinite;
-}
-.hero-logo-ring::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: 50%;
-  width: 8px;
-  height: 8px;
-  background: var(--red);
-  border-radius: 50%;
-  transform: translateX(-50%);
-}
-.hero-logo-ring-2 {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  border: 1px solid rgba(196,30,42,0.08);
-  border-radius: 50%;
-  animation: ring-rotate 30s linear infinite reverse;
-}
-.hero-logo-glow {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(196,30,42,0.12) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(40px);
-}
-
-@keyframes ring-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 @keyframes fadeInRight {
   from { opacity: 0; transform: translateX(40px); }
@@ -958,9 +918,7 @@ a { text-decoration: none; color: inherit; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-logo-showcase img { width: 200px; }
-  .hero-logo-ring { width: 260px; height: 260px; }
-  .hero-logo-ring-2 { width: 310px; height: 310px; }
+  .hero-logo-showcase img { width: 320px; }
 }
 @media (max-width: 768px) {
   .topbar .container { justify-content: center; text-align: center; }
@@ -981,9 +939,7 @@ a { text-decoration: none; color: inherit; }
   .hero { min-height: 75vh; }
   .hero h1 { font-size: 2.4rem; }
   .hero-inner { flex-direction: column-reverse; text-align: center; gap: 40px; }
-  .hero-logo-showcase img { width: 160px; }
-  .hero-logo-ring { width: 200px; height: 200px; }
-  .hero-logo-ring-2 { width: 240px; height: 240px; }
+  .hero-logo-showcase img { width: 240px; }
   .hero-btns { justify-content: center; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .stat-item:not(:last-child)::after { display: none; }
@@ -1063,9 +1019,6 @@ a { text-decoration: none; color: inherit; }
       </div>
       <!-- BIG LOGO IN HERO -->
       <div class="hero-logo-showcase">
-        <div class="hero-logo-glow"></div>
-        <div class="hero-logo-ring-2"></div>
-        <div class="hero-logo-ring"></div>
         <img src="images/allDoorsLogo.jpeg" alt="All Doors Hardware Logo" />
       </div>
     </div>
@@ -1347,7 +1300,7 @@ a { text-decoration: none; color: inherit; }
           </div>
           <div class="contact-detail-text">
             <h4>Email</h4>
-            <p><a href="mailto:info@alldoorshardware.com">info@alldoorshardware.com</a></p>
+            <p><a href="/cdn-cgi/l/email-protection#61080f070e21000d0d050e0e131209001305160013044f020e0c"><span class="__cf_email__" data-cfemail="7f161119103f1e13131b10100d0c171e0d1b081e0d1a511c1012">[email&#160;protected]</span></a></p>
           </div>
         </div>
         <div class="contact-detail-card">
@@ -1538,7 +1491,7 @@ a { text-decoration: none; color: inherit; }
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span>info@alldoorshardware.com</span>
+            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dcb5b2bab39cbdb0b0b8b3b3aeafb4bdaeb8abbdaeb9f2bfb3b1">[email&#160;protected]</a></span>
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
@@ -1563,7 +1516,7 @@ a { text-decoration: none; color: inherit; }
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
@@ -1631,14 +1584,4 @@ document.querySelectorAll('.service-card, .why-card, .location-card, .contact-fo
       .catch(function(error) {
         console.error('EmailJS error:', error);
         status.className = 'form-status error';
-        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg> Something went wrong. Please call us at (754) 444-1181 instead.';
-      })
-      .finally(function() {
-        btn.disabled = false;
-        btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
-      });
-  }
-</script>
-<style>@keyframes spin { to { transform: rotate(360deg); } }</style>
-</body>
-</html>
+        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4
