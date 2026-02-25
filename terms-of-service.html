@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | All Doors Hardware</title>
+<link rel="icon" type="image/jpeg" href="images/allDoorsLogo.jpeg">
+<link rel="shortcut icon" type="image/jpeg" href="images/allDoorsLogo.jpeg">
+<link rel="apple-touch-icon" href="images/allDoorsLogo.jpeg">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --red: #c41e2a; --red-dark: #9b1822; --red-light: #e63946;
+  --black: #0a0a0a; --black-light: #1a1a1a; --black-card: #141414;
+  --gray-dark: #2a2a2a; --gray: #888; --gray-light: #bbb; --white: #f5f5f5;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Source Sans 3', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+h1,h2,h3,h4,h5 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: 0.04em; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+.topbar { background: var(--red); padding: 8px 0; font-size: 0.82rem; letter-spacing: 0.03em; position: relative; z-index: 100; }
+.topbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.topbar a { color: #fff; font-weight: 600; }
+.topbar a:hover { text-decoration: underline; }
+.topbar-left { display: flex; gap: 24px; align-items: center; }
+.topbar-right { display: flex; gap: 20px; align-items: center; }
+.topbar svg { width: 14px; height: 14px; fill: #fff; vertical-align: middle; margin-right: 5px; }
+
+.navbar { background: rgba(10,10,10,0.97); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 99; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s; }
+.navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.7); }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 14px; padding: 10px 0; }
+.logo img { height: 60px; }
+.nav-links { display: flex; gap: 0; align-items: center; }
+.nav-links a { padding: 22px 18px; font-family: 'Oswald', sans-serif; font-size: 0.92rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray-light); transition: all 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 0; height: 3px; background: var(--red); transition: width 0.3s; }
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { background: var(--red) !important; color: #fff !important; padding: 12px 28px !important; margin-left: 10px; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); font-weight: 600 !important; transition: background 0.3s !important; }
+.nav-cta:hover { background: var(--red-light) !important; }
+.nav-cta::after { display: none !important; }
+.mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.mobile-toggle span { display: block; width: 26px; height: 2px; background: #fff; margin: 6px 0; transition: 0.3s; }
+
+.page-hero { padding: 80px 0 60px; background: var(--black); position: relative; overflow: hidden; text-align: center; }
+.page-hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(196,30,42,0.08) 0%, transparent 70%); pointer-events: none; }
+.page-hero .container { position: relative; z-index: 2; }
+.page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #fff; margin-bottom: 12px; }
+.page-hero p { color: var(--gray); font-size: 1rem; }
+.section-tag { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+.section-tag::before, .section-tag::after { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--red); vertical-align: middle; margin: 0 14px; }
+
+.legal-section { padding: 80px 0 100px; background: var(--black-light); }
+.legal-card { background: var(--black-card); border: 1px solid rgba(255,255,255,0.06); padding: 52px 60px; max-width: 920px; margin: 0 auto; position: relative; }
+.legal-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--red), var(--red-dark)); }
+.legal-card h2 { font-size: 1.3rem; font-weight: 600; color: #fff; margin: 40px 0 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.legal-card h2:first-of-type { margin-top: 0; }
+.legal-card p { color: var(--gray-light); font-size: 0.95rem; line-height: 1.8; margin-bottom: 16px; }
+.legal-card ul { list-style: none; padding: 0; margin-bottom: 16px; }
+.legal-card ul li { position: relative; padding-left: 22px; margin-bottom: 10px; color: var(--gray-light); font-size: 0.93rem; line-height: 1.7; }
+.legal-card ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; background: var(--red); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+.legal-card a { color: var(--red-light); transition: color 0.3s; }
+.legal-card a:hover { color: #fff; text-decoration: underline; }
+.legal-card strong { color: var(--white); }
+.effective-date { display: inline-block; background: rgba(196,30,42,0.1); border: 1px solid rgba(196,30,42,0.2); color: var(--red-light); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; padding: 6px 16px; margin-bottom: 32px; }
+
+.flag-stripe { height: 6px; background: linear-gradient(to right, #002868 0%, #002868 33%, #fff 33%, #fff 66%, var(--red) 66%, var(--red) 100%); }
+
+.footer { background: var(--black-light); border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-main { padding: 80px 0 60px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 48px; }
+.footer-brand p { color: var(--gray); font-size: 0.9rem; line-height: 1.7; margin-top: 18px; max-width: 320px; }
+.footer-social { display: flex; gap: 12px; margin-top: 24px; }
+.footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+.footer-social a:hover { background: var(--red); }
+.footer-social svg { width: 18px; height: 18px; fill: var(--gray); transition: fill 0.3s; }
+.footer-social a:hover svg { fill: #fff; }
+.footer h4 { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.15em; margin-bottom: 24px; color: #fff; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: var(--gray); font-size: 0.9rem; transition: color 0.3s; }
+.footer-links a:hover { color: var(--red); }
+.footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+.footer-contact-item svg { width: 18px; height: 18px; fill: var(--red); min-width: 18px; margin-top: 3px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 24px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--gray); }
+
+@media (max-width: 768px) {
+  .topbar .container { justify-content: center; text-align: center; }
+  .topbar-left, .topbar-right { justify-content: center; }
+  .nav-links { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(10,10,10,0.98); border-top: 1px solid rgba(255,255,255,0.06); }
+  .nav-links.active a { padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .legal-card { padding: 28px 24px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="tel:7544441181"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>(754) 444-1181</a>
+      <span style="color:rgba(255,255,255,0.6)">Mon-Fri 8AM-6PM &bull; Sun 10AM-4PM</span>
+    </div>
+    <div class="topbar-right">
+      <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Sheridan, WY &bull; Davie, FL</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="logo"><img src="images/allDoorsLogo.jpeg" alt="All Doors Hardware" /></a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#locations">Locations</a>
+      <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+    </div>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="section-tag">Legal</div>
+    <h1>Terms of Service</h1>
+    <p>Please read these terms carefully before using our website or services.</p>
+  </div>
+</section>
+
+<!-- LEGAL CONTENT -->
+<section class="legal-section">
+  <div class="container">
+    <div class="legal-card">
+      <div class="effective-date">Effective Date: February 24, 2026</div>
+
+      <p>These Terms of Service ("Terms") govern your access to and use of the website <strong>alldoorshardware.com</strong> (the "Website") and any products, services, or content provided by All Doors Hardware ("Company," "we," "us," or "our"). By accessing or using our Website or engaging our services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Website or services.</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing, browsing, or using this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated herein by reference. We reserve the right to update or modify these Terms at any time without prior notice. Your continued use of the Website following any changes constitutes your acceptance of the revised Terms. It is your responsibility to review these Terms periodically for updates.</p>
+
+      <h2>2. Eligibility</h2>
+      <p>You must be at least 18 years of age to use this Website or engage our services. By using the Website, you represent and warrant that you are at least 18 years old and have the legal capacity to enter into a binding agreement. If you are accessing or using the Website on behalf of a business or other legal entity, you represent that you have the authority to bind that entity to these Terms.</p>
+
+      <h2>3. Products & Services</h2>
+      <p>All Doors Hardware provides commercial and residential door hardware products, access control systems, CCTV and surveillance solutions, automatic door operators, and related professional services including project management, budgeting, and consultation.</p>
+      <ul>
+        <li><strong>Product Descriptions:</strong> We make every effort to ensure that product descriptions, specifications, images, and pricing on our Website are accurate and up to date. However, we do not warrant that all product descriptions or other content on the Website are complete, accurate, current, or error-free. Products are subject to availability.</li>
+        <li><strong>Pricing:</strong> All prices displayed on the Website are in U.S. dollars and are subject to change without notice. Quotes provided via email, phone, or the Website are valid for 30 days unless otherwise stated in writing. Final pricing may vary based on project specifications, quantity, shipping, and other factors.</li>
+        <li><strong>Product Availability:</strong> We reserve the right to limit the quantity of products available for purchase and to discontinue any product at any time without notice. Availability of products through our Website does not guarantee availability at time of order.</li>
+      </ul>
+
+      <h2>4. Orders & Payments</h2>
+      <ul>
+        <li><strong>Order Acceptance:</strong> All orders placed through our Website, email, or phone are subject to acceptance by All Doors Hardware. We reserve the right to refuse or cancel any order at any time for any reason, including but not limited to product availability, errors in pricing or product information, or suspected fraud.</li>
+        <li><strong>Payment Terms:</strong> Payment is due in accordance with the terms specified on your invoice or at the time of purchase. We accept major credit cards, wire transfers, ACH payments, and checks (for qualified accounts). Late payments may be subject to a finance charge of 1.5% per month or the maximum rate permitted by law, whichever is less.</li>
+        <li><strong>Taxes:</strong> Prices do not include applicable sales tax, use tax, or other governmental charges. You are responsible for all applicable taxes associated with your purchase unless you provide a valid tax-exempt certificate prior to purchase.</li>
+      </ul>
+
+      <h2>5. Shipping & Delivery</h2>
+      <ul>
+        <li><strong>Shipping Locations:</strong> We ship from two warehouse locations — Sheridan, Wyoming and Davie, Florida — to provide coast-to-coast coverage across the United States.</li>
+        <li><strong>Shipping Costs:</strong> Shipping costs are calculated based on order weight, dimensions, destination, and selected shipping method. Estimated shipping costs provided during the quote process are subject to adjustment based on final order specifications.</li>
+        <li><strong>Delivery Times:</strong> Estimated delivery times are provided as a courtesy and are not guaranteed. Delivery times may vary due to product availability, carrier delays, weather conditions, or other factors beyond our control.</li>
+        <li><strong>Risk of Loss:</strong> Risk of loss and title for products pass to you upon delivery to the carrier. We are not responsible for damage or loss that occurs during transit. We recommend purchasing shipping insurance for high-value orders.</li>
+        <li><strong>Inspection:</strong> You agree to inspect all products upon receipt and report any damage, defects, or discrepancies within 48 hours of delivery by contacting us at <a href="mailto:info@alldoorshardware.com">info@alldoorshardware.com</a> or by phone.</li>
+      </ul>
+
+      <h2>6. Returns & Cancellations</h2>
+      <ul>
+        <li><strong>Return Policy:</strong> Standard stock items may be returned within 30 days of delivery in their original, unused, and unopened condition. A restocking fee of up to 25% may apply. Custom-ordered, special-order, or cut-to-size products are non-returnable and non-refundable.</li>
+        <li><strong>Return Authorization:</strong> All returns require prior authorization. Please contact us at <a href="mailto:info@alldoorshardware.com">info@alldoorshardware.com</a> to request a Return Merchandise Authorization (RMA) number before shipping any product back.</li>
+        <li><strong>Cancellations:</strong> Orders may be cancelled within 24 hours of placement at no charge. Orders cancelled after 24 hours or after the product has shipped may be subject to cancellation or restocking fees.</li>
+        <li><strong>Defective Products:</strong> If you receive a defective product, please contact us within 48 hours of delivery. We will arrange for a replacement or refund at no additional cost, including return shipping.</li>
+      </ul>
+
+      <h2>7. Warranties</h2>
+      <p>All Doors Hardware does not manufacture the products we sell. Products are covered by the manufacturer's warranty, if any. We will assist you in processing warranty claims with the applicable manufacturer. We do not provide any additional warranties beyond those offered by the manufacturer.</p>
+      <p><strong>DISCLAIMER:</strong> EXCEPT AS EXPRESSLY SET FORTH HEREIN OR IN A MANUFACTURER'S WARRANTY, ALL PRODUCTS AND SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ALL DOORS HARDWARE AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, BUSINESS OPPORTUNITIES, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF OUR WEBSITE, PRODUCTS, OR SERVICES, REGARDLESS OF THE CAUSE OF ACTION OR THE THEORY OF LIABILITY.</p>
+      <p>IN NO EVENT SHALL OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR YOUR USE OF OUR PRODUCTS OR SERVICES EXCEED THE AMOUNT YOU PAID TO US FOR THE SPECIFIC PRODUCT OR SERVICE GIVING RISE TO THE CLAIM.</p>
+
+      <h2>9. Intellectual Property</h2>
+      <p>All content on this Website — including but not limited to text, graphics, logos, images, photographs, illustrations, product descriptions, software, and the compilation thereof — is the property of All Doors Hardware or its content suppliers and is protected by United States and international copyright, trademark, and other intellectual property laws.</p>
+      <ul>
+        <li>The All Doors Hardware name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of All Doors Hardware. You may not use these marks without our prior written permission.</li>
+        <li>Third-party brand names, product names, and logos (e.g., Von Duprin, Schlage, ASSA ABLOY, Yale, etc.) referenced on this Website are the trademarks of their respective owners and are used for identification purposes only.</li>
+        <li>You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our Website without our express prior written consent.</li>
+      </ul>
+
+      <h2>10. User Conduct</h2>
+      <p>When using our Website, you agree not to:</p>
+      <ul>
+        <li>Use the Website for any unlawful purpose or in violation of any applicable local, state, national, or international law or regulation.</li>
+        <li>Attempt to gain unauthorized access to any portion of the Website, other accounts, computer systems, or networks connected to our servers.</li>
+        <li>Use any automated system, including bots, spiders, scrapers, or data mining tools, to access, extract, or collect content from the Website.</li>
+        <li>Transmit any viruses, malware, worms, or other malicious code through the Website.</li>
+        <li>Impersonate or attempt to impersonate All Doors Hardware, a Company employee, another user, or any other person or entity.</li>
+        <li>Submit false, misleading, or fraudulent information through any form or communication channel on the Website.</li>
+        <li>Engage in any conduct that restricts or inhibits any other user's use or enjoyment of the Website.</li>
+      </ul>
+
+      <h2>11. Quote Requests & Communications</h2>
+      <p>By submitting a quote request, contact form, or any other inquiry through our Website, you consent to receiving communications from All Doors Hardware via email, phone, or text message in response to your inquiry. Communications may include follow-up regarding your project, product recommendations, pricing information, and promotional materials. You may opt out of promotional communications at any time by contacting us.</p>
+
+      <h2>12. Job Applications</h2>
+      <p>By submitting a job application through our careers page, you represent that all information provided is truthful and accurate. All Doors Hardware reserves the right to verify any information submitted and to reject any application at its sole discretion. Submission of an application does not guarantee employment or create an employment relationship. All employment at All Doors Hardware is at-will unless otherwise agreed upon in a separate written agreement.</p>
+
+      <h2>13. Third-Party Links</h2>
+      <p>Our Website may contain links to third-party websites or services that are not owned or controlled by All Doors Hardware. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You access third-party websites at your own risk and should review their terms and policies before engaging with them.</p>
+
+      <h2>14. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless All Doors Hardware and its officers, directors, employees, agents, affiliates, successors, and assigns from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to: (a) your use of the Website or services; (b) your violation of these Terms; (c) your violation of any third-party rights, including intellectual property rights; or (d) any content or information you submit through the Website.</p>
+
+      <h2>15. Force Majeure</h2>
+      <p>All Doors Hardware shall not be liable for any failure or delay in performing its obligations under these Terms if such failure or delay results from circumstances beyond our reasonable control, including but not limited to acts of God, natural disasters, pandemics, war, terrorism, riots, government actions, supply chain disruptions, carrier delays, strikes, labor disputes, power outages, or failures of Internet or telecommunications infrastructure.</p>
+
+      <h2>16. Dispute Resolution & Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law principles. Any dispute, claim, or controversy arising out of or relating to these Terms or your use of our Website or services shall first be attempted to be resolved through good-faith negotiation between the parties. If negotiation is unsuccessful, the dispute shall be resolved through binding arbitration in Broward County, Florida, in accordance with the rules of the American Arbitration Association. You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action.</p>
+
+      <h2>17. Severability</h2>
+      <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision shall be modified to the minimum extent necessary to make it enforceable, and the remaining provisions shall continue in full force and effect.</p>
+
+      <h2>18. Entire Agreement</h2>
+      <p>These Terms, together with our <a href="privacy-policy.html">Privacy Policy</a> and any additional terms or policies referenced herein, constitute the entire agreement between you and All Doors Hardware regarding your use of the Website and services, and supersede all prior or contemporaneous communications, proposals, and agreements, whether oral or written.</p>
+
+      <h2>19. Contact Us</h2>
+      <p>If you have any questions or concerns about these Terms of Service, please contact us:</p>
+      <p>
+        <strong>All Doors Hardware</strong><br>
+        Email: <a href="mailto:info@alldoorshardware.com">info@alldoorshardware.com</a><br>
+        Phone: <a href="tel:7544441181">(754) 444-1181</a> (East Coast) | <a href="tel:3073819484">(307) 381-9484</a> (West Coast)<br>
+        Locations: Sheridan, WY &bull; Davie, FL
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FLAG STRIPE -->
+<div class="flag-stripe"></div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><div style="text-align:center;"><img src="images/allDoorsLogo.jpeg" alt="All Doors Hardware" style="height:60px;"></div></a>
+          <p>Your trusted partner for commercial door solutions. We combine quality products, expert knowledge, and exceptional service to secure what matters most.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M16 4H8a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4zm2 12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8zm-6-7a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm4.5-1.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services/commercial-doors.html">Commercial Doors & Frames</a></li>
+            <li><a href="services/door-hardware.html">Door Hardware & Locks</a></li>
+            <li><a href="services/access-control.html">Access Control Systems</a></li>
+            <li><a href="services/cctv-systems.html">CCTV & Surveillance</a></li>
+            <li><a href="services/automatic-doors.html">Automatic Door Operators</a></li>
+            <li><a href="services/hotels-multifamily.html">Hotels & Multi-Family</a></li>
+            <li><a href="services/budgeting.html">Budgeting & Estimating</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#mission">Our Mission</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg><span>(754) 444-1181</span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><span><a href="mailto:info@alldoorshardware.com">info@alldoorshardware.com</a></span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span>West: Sheridan, WY<br>East: Davie, FL</span></div>
+          <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg><span>Mon–Fri: 8AM–6PM<br>Sun: 10AM–4PM</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 All Doors Hardware. All rights reserved.</span>
+      <span>
+        <a href="privacy-policy.html" style="color:var(--gray);margin-left:16px;">Privacy Policy</a>
+        <a href="terms-of-service.html" style="color:var(--gray);margin-left:16px;">Terms of Service</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
+document.getElementById('mobileToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('active'); });
+</script>
+</body>
+</html>
