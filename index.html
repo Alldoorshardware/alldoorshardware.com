@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>All Doors Hardware | Commercial Door Solutions</title>
+<link rel="icon" type="image/jpeg" href="images/allDoorsLogo.jpeg">
+<link rel="shortcut icon" type="image/jpeg" href="images/allDoorsLogo.jpeg">
+<link rel="apple-touch-icon" href="images/allDoorsLogo.jpeg">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -439,7 +442,7 @@ a { text-decoration: none; color: inherit; }
 .service-card:hover .service-link { gap: 14px; }
 .service-link svg { width: 16px; height: 16px; fill: var(--red); }
 
-/* Featured service card — full-width horizontal layout */
+/* Featured service card */
 .service-card-featured {
   grid-column: 1 / -1;
   display: grid;
@@ -570,6 +573,109 @@ a { text-decoration: none; color: inherit; }
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--gray-light);
+}
+
+/* ──── MISSION SECTION ──── */
+.mission-section {
+  position: relative;
+  overflow: hidden;
+}
+.mission-section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(196,30,42,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.mission-section::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(196,30,42,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.mission-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.mission-icon-wrap {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 32px;
+  background: rgba(196,30,42,0.1);
+  border: 2px solid rgba(196,30,42,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mission-icon-wrap svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--red);
+}
+.mission-inner .mission-text {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: var(--gray-light);
+  margin-bottom: 40px;
+}
+.mission-divider {
+  width: 80px;
+  height: 3px;
+  background: var(--red);
+  margin: 0 auto 40px;
+}
+.mission-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.mission-value {
+  padding: 32px 24px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.4s;
+}
+.mission-value:hover {
+  border-color: rgba(196,30,42,0.3);
+  transform: translateY(-4px);
+}
+.mission-value-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 18px;
+  background: rgba(196,30,42,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mission-value-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--red);
+}
+.mission-value h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+.mission-value p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  line-height: 1.6;
 }
 
 /* ──── WHY CHOOSE US ──── */
@@ -966,6 +1072,7 @@ a { text-decoration: none; color: inherit; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-logo-showcase img { width: 320px; }
+  .mission-values { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
   .topbar .container { justify-content: center; text-align: center; }
@@ -1001,8 +1108,10 @@ a { text-decoration: none; color: inherit; }
   .contact-form-card { padding: 28px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
+  .mission-values { grid-template-columns: 1fr; }
 }
-  /* WhatsApp Button Styles */
+
+/* WhatsApp Button Styles */
 .btn-whatsapp {
   display: inline-flex;
   align-items: center;
@@ -1011,7 +1120,6 @@ a { text-decoration: none; color: inherit; }
   font-weight: 600;
   color: #0f5132;
 }
-
 .wa-icon {
   display: flex;
   align-items: center;
@@ -1022,7 +1130,6 @@ a { text-decoration: none; color: inherit; }
   border: 2px solid #0f3d24;
   border-radius: 50%;
 }
-
 .wa-icon svg {
   width: 22px;
   height: 22px;
@@ -1294,6 +1401,46 @@ a { text-decoration: none; color: inherit; }
           </div>
         </div>
         <a href="#contact" class="btn btn-primary">Request a Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR MISSION -->
+<section class="section section-dark mission-section" id="mission">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Mission</div>
+      <h2>What Drives Us</h2>
+    </div>
+    <div class="mission-inner">
+      <div class="mission-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2z"/></svg>
+      </div>
+      <div class="mission-divider"></div>
+      <p class="mission-text">All Doors Hardware is committed to being a leading source for commercial and residential door hardware — offering innovative solutions, trusted brands, and knowledgeable service that professionals and property owners rely on. Our mission is to make every entry secure, functional, and beautifully finished by delivering premium hardware, competitive pricing, and exceptional customer support every step of the way.</p>
+      <div class="mission-values">
+        <div class="mission-value">
+          <div class="mission-value-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <h4>Security First</h4>
+          <p>Every product we deliver is built to protect what matters most to our clients.</p>
+        </div>
+        <div class="mission-value">
+          <div class="mission-value-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h4>Customer Partnership</h4>
+          <p>We work alongside professionals and property owners as trusted advisors.</p>
+        </div>
+        <div class="mission-value">
+          <div class="mission-value-icon">
+            <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+          </div>
+          <h4>Innovative Solutions</h4>
+          <p>We stay ahead of industry trends to bring cutting-edge hardware to every project.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1578,11 +1725,11 @@ a { text-decoration: none; color: inherit; }
         <div>
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Mission</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#mission">Our Mission</a></li>
             <li><a href="#">Projects</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -1618,7 +1765,7 @@ a { text-decoration: none; color: inherit; }
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
@@ -1645,7 +1792,7 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, observerOptions);
-document.querySelectorAll('.service-card, .why-card, .location-card, .contact-form-card, .contact-detail-card').forEach(el => {
+document.querySelectorAll('.service-card, .why-card, .location-card, .contact-form-card, .contact-detail-card, .mission-value').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(30px)';
   el.style.transition = 'opacity 0.6s, transform 0.6s';
@@ -1682,8 +1829,18 @@ document.querySelectorAll('.service-card, .why-card, .location-card, .contact-fo
         status.className = 'form-status success';
         status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Message sent successfully! We\'ll get back to you within 24 hours.';
         form.reset();
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
       })
       .catch(function(error) {
         console.error('EmailJS error:', error);
         status.className = 'form-status error';
-        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4
+        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg> Something went wrong. Please try again or call us directly.';
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
+      });
+  }
+</script>
+
+</body>
+</html>
