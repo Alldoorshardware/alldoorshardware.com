@@ -953,30 +953,37 @@ a { text-decoration: none; color: inherit; }
     <div class="apply-form-card">
       <h3>Application Form</h3>
       <p>Fill out the form below, attach your resume, and tell us why you'd be a great fit. We'll be in touch!</p>
-      <form id="applicationForm" onsubmit="handleApplicationSubmit(event)">
+      <form id="applicationForm" action="https://formsubmit.co/info@alldoorshardware.com" method="POST" enctype="multipart/form-data">
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="New Job Application — All Doors Hardware">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://alldoorshardware.com/careers.html#apply-success">
+        <input type="text" name="_honey" style="display:none">
+
         <div class="form-row">
           <div class="form-group">
             <label>First Name <span class="required">*</span></label>
-            <input type="text" name="first_name" placeholder="John" required />
+            <input type="text" name="First Name" placeholder="John" required />
           </div>
           <div class="form-group">
             <label>Last Name <span class="required">*</span></label>
-            <input type="text" name="last_name" placeholder="Doe" required />
+            <input type="text" name="Last Name" placeholder="Doe" required />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Email Address <span class="required">*</span></label>
-            <input type="email" name="email" placeholder="john@email.com" required />
+            <input type="email" name="Email" placeholder="john@email.com" required />
           </div>
           <div class="form-group">
             <label>Phone Number <span class="required">*</span></label>
-            <input type="tel" name="phone" placeholder="(555) 123-4567" required />
+            <input type="tel" name="Phone" placeholder="(555) 123-4567" required />
           </div>
         </div>
         <div class="form-group">
           <label>Position Applying For <span class="required">*</span></label>
-          <select name="position" required>
+          <select name="Position Applied For" required>
             <option value="" disabled selected>Select a position...</option>
             <option value="Estimator / Project Manager">Estimator / Project Manager</option>
             <option value="Remote Sales Representative">Remote Sales Representative</option>
@@ -985,12 +992,12 @@ a { text-decoration: none; color: inherit; }
         </div>
         <div class="form-group">
           <label>City & State</label>
-          <input type="text" name="location" placeholder="e.g. Miami, FL" />
+          <input type="text" name="City & State" placeholder="e.g. Miami, FL" />
         </div>
         <div class="form-group">
           <label>Resume / CV <span class="required">*</span></label>
           <div class="file-upload-wrapper" id="fileDropZone">
-            <input type="file" name="resume" id="resumeInput" accept=".pdf,.doc,.docx" required />
+            <input type="file" name="attachment" id="resumeInput" accept=".pdf,.doc,.docx" required />
             <div class="file-upload-icon">
               <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-3-7v4h-2v-4H9l4-4 4 4h-2z"/></svg>
             </div>
@@ -1001,14 +1008,19 @@ a { text-decoration: none; color: inherit; }
         </div>
         <div class="form-group">
           <label>Why would you be a great fit? <span class="required">*</span></label>
-          <textarea name="cover_message" placeholder="Tell us about your experience, skills, and what excites you about this opportunity..." required></textarea>
+          <textarea name="Why I Would Be a Great Fit" placeholder="Tell us about your experience, skills, and what excites you about this opportunity..." required></textarea>
         </div>
         <button type="submit" class="form-submit-btn" id="applyBtn">
           Submit Application
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
-        <div id="applyFormStatus" class="form-status"></div>
       </form>
+
+      <!-- Success message shown after redirect -->
+      <div id="applySuccess" class="form-status" style="display:none;">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+        Application submitted successfully! We'll review your resume and get back to you soon.
+      </div>
     </div>
   </div>
 </section>
@@ -1154,62 +1166,15 @@ document.querySelectorAll('.job-card, .why-join-card, .apply-form-card').forEach
 });
 </script>
 
-<!-- EmailJS for Application Form -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Simple JS for file display and success detection (Formsubmit.co handles everything) -->
 <script>
-  const EMAILJS_PUBLIC_KEY = 'XYU6s79OqzdE8gR8m';
-  const EMAILJS_SERVICE_ID = 'service_ep6ue8m';
-  const EMAILJS_TEMPLATE_ID = 'template_ivkp8m8';
-  (function() { emailjs.init(EMAILJS_PUBLIC_KEY); })();
-
-  function handleApplicationSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('applicationForm');
-    const btn = document.getElementById('applyBtn');
-    const status = document.getElementById('applyFormStatus');
-
-    btn.disabled = true;
-    btn.innerHTML = 'Submitting... <svg viewBox="0 0 24 24" style="animation:spin 1s linear infinite"><path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z" fill="currentColor"/></svg>';
-
-    const formData = new FormData(form);
-    const resumeFile = document.getElementById('resumeInput').files[0];
-
-    // Build the message with all application details
-    let messageBody = '--- NEW JOB APPLICATION ---\n\n';
-    messageBody += 'Position: ' + formData.get('position') + '\n';
-    messageBody += 'Name: ' + formData.get('first_name') + ' ' + formData.get('last_name') + '\n';
-    messageBody += 'Email: ' + formData.get('email') + '\n';
-    messageBody += 'Phone: ' + formData.get('phone') + '\n';
-    messageBody += 'Location: ' + (formData.get('location') || 'Not provided') + '\n';
-    messageBody += 'Resume: ' + (resumeFile ? resumeFile.name + ' (attached)' : 'Not attached') + '\n\n';
-    messageBody += 'Cover Message:\n' + formData.get('cover_message');
-
-    const templateParams = {
-      first_name: formData.get('first_name'),
-      last_name:  formData.get('last_name'),
-      email:      formData.get('email'),
-      phone:      formData.get('phone'),
-      company:    'Job Application - ' + formData.get('position'),
-      service:    'Career Application',
-      message:    messageBody,
-    };
-
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-      .then(function() {
-        status.className = 'form-status success';
-        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Application submitted successfully! We\'ll review your information and get back to you soon. Please also email your resume to info@alldoorshardware.com for fastest processing.';
-        form.reset();
-        fileNameDisplay.style.display = 'none';
-        btn.disabled = false;
-        btn.innerHTML = 'Submit Application <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
-      })
-      .catch(function(error) {
-        console.error('EmailJS error:', error);
-        status.className = 'form-status error';
-        status.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg> Something went wrong. Please email your application directly to info@alldoorshardware.com.';
-        btn.disabled = false;
-        btn.innerHTML = 'Submit Application <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
-      });
+  // Show success message if redirected back after submission
+  if (window.location.hash === '#apply-success') {
+    const successMsg = document.getElementById('applySuccess');
+    if (successMsg) {
+      successMsg.style.display = 'flex';
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 </script>
 
